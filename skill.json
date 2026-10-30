@@ -1,0 +1,10 @@
+{
+  "name": "genpark-vision-coder",
+  "version": "1.0.0",
+  "description": "GenPark Vision Coder - 2D bounding-box Flexbox hierarchy layout solver, Tailwind CSS HTML AST synthesizer, and visual whitespace center-of-mass evaluator with zero dependencies.",
+  "tools": [
+    "parse_bounding_boxes_to_flexbox_hierarchy",
+    "synthesize_tailwind_css_dom_ast",
+    "evaluate_visual_hierarchy_balance"
+  ]
+}
