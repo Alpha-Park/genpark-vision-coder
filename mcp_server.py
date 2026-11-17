@@ -8,18 +8,9 @@ import json
 from typing import Dict, Any, List
 from client import GenParkVisionCoder
 
-try:
-    from mcp.server.fastmcp import FastMCP
-    mcp = FastMCP("genpark-vision-coder")
-except ImportError:
-    class MockFastMCP:
-        def __init__(self, name):
-            self.name = name
-        def tool(self):
-            def decorator(f):
-                return f
-            return decorator
-    mcp = MockFastMCP("genpark-vision-coder")
+from mcp.server.fastmcp import FastMCP
+
+mcp = FastMCP('genpark-vision-coder')
 
 vc = GenParkVisionCoder()
 
@@ -56,9 +47,7 @@ def evaluate_visual_hierarchy_balance(
     return json.dumps(res, indent=2)
 
 def main():
-    print("Testing Vision Coder:")
-    sample = [{"type": "title", "text": "Dashboard", "x": 50, "y": 40, "width": 200, "height": 30}]
-    print(parse_bounding_boxes_to_flexbox_hierarchy(sample))
+    mcp.run(transport="stdio")
 
 if __name__ == "__main__":
     main()
